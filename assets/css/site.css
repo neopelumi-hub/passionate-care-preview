@@ -834,6 +834,25 @@ img {
 .fact-card p:last-child,
 .fact-card ul:last-child { margin-bottom: 0; }
 .fact-card ul { padding-left: 1.15rem; margin: 0; }
+/* The waiver each approved service sits on, set beside it rather than under it:
+   a case manager reads this card to answer one question, and the answer is the
+   pairing. Quiet enough not to compete with the service name it qualifies. */
+.fact-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  padding: 0.05rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(31, 42, 38, 0.08);
+  color: var(--ink-soft, inherit);
+  white-space: nowrap;
+}
+.fact-note {
+  margin: 0.85rem 0 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--ink-soft, inherit);
+}
 .fact-card li { margin-bottom: 0.45em; font-size: 0.96rem; color: var(--ink-soft); }
 .fact-card li:last-child { margin-bottom: 0; }
 .band-dark .fact-card li { color: var(--sage); }

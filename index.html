@@ -35,11 +35,10 @@
      shown and then hidden. Without JavaScript it is simply never added. -->
 <script>document.documentElement.classList.add('js-hero');</script>
 
-<!-- The organisation block below carries the placeholder contact
-     details, and is where the licence identifiers go once supplied.
-     TODO: EMAIL
-     TODO: PHONE
-     TODO: LICENSE -->
+<!-- The email address and the two facility IDs in the organisation block
+     below are live and verifiable on CDPHE's public registry. The phone number
+     is still a placeholder.
+     TODO: PHONE -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -55,6 +54,18 @@
     "height": 512
   },
   "slogan": "Care that comes from the heart",
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "name": "CDPHE Home Care Agency facility ID",
+      "value": "04RGE7"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Colorado HCPF Program Approved Service Agency facility ID",
+      "value": "1O6MQ"
+    }
+  ],
   "image": "https://passionatecarecolorado.com/assets/img/og-default.jpg",
   "email": "info@passionatecarecolorado.com",
   "telephone": "+1-720-000-0000",
@@ -63,9 +74,11 @@
     { "@type": "AdministrativeArea", "name": "Denver County, Colorado" },
     { "@type": "AdministrativeArea", "name": "Adams County, Colorado" },
     { "@type": "AdministrativeArea", "name": "Arapahoe County, Colorado" },
-    { "@type": "AdministrativeArea", "name": "Jefferson County, Colorado" },
     { "@type": "AdministrativeArea", "name": "Douglas County, Colorado" },
-    { "@type": "AdministrativeArea", "name": "Broomfield County, Colorado" }
+    { "@type": "AdministrativeArea", "name": "Jefferson County, Colorado" },
+    { "@type": "AdministrativeArea", "name": "Boulder County, Colorado" },
+    { "@type": "AdministrativeArea", "name": "Broomfield County, Colorado" },
+    { "@type": "AdministrativeArea", "name": "Elbert County, Colorado" }
   ],
   "address": {
     "@type": "PostalAddress",
@@ -131,8 +144,7 @@
     <div class="wrap">
       <div class="hero-lead">
         <!-- LIVE-STATUS CLAIM -->
-        <!-- TODO: LICENSE --><!-- TODO: PASA -->
-        <p class="status-flag">Licensed agency &middot; approved waiver provider &middot; taking referrals</p>
+                <p class="status-flag">Licensed agency &middot; approved waiver provider &middot; taking referrals</p>
 
         <h1>Help at home, and a life out in the world</h1>
 
@@ -215,7 +227,7 @@
         </li>
         <li>
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10.5c0 6.2-8 12.5-8 12.5S4 16.7 4 10.5a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.4" r="2.7"/></svg>
-          Six Denver-metro counties
+          Eight Denver-metro counties
         </li>
       </ul>
     </div>
@@ -234,8 +246,7 @@
             son to his day programme. Very few do both, so families end up managing two intakes, two
             sets of paperwork and two phone numbers &mdash; and repeating the same story twice.
           </p>
-          <!-- LIVE-STATUS CLAIM --><!-- TODO: LICENSE --><!-- TODO: PASA -->
-          <p>
+          <!-- LIVE-STATUS CLAIM -->          <p>
             We are licensed for one and approved for the other. When a family&rsquo;s needs shift, nobody
             starts over.
           </p>
@@ -243,7 +254,6 @@
       </div>
 
       <!-- SIGNATURE: the two-sided roof panel -->
-      <!-- TODO: PASA — confirm exact approved service list and waivers (DD, SLS, CES) -->
       <div class="roof">
         <div class="roof-side roof-home">
           <span class="roof-label">Licensed home care</span>
@@ -255,7 +265,7 @@
             <li>In-Home Support Services, where your family picks the caregiver</li>
             <li>Community First Choice hours, alongside a waiver or on their own</li>
           </ul>
-          <!-- LIVE-STATUS CLAIM --><!-- TODO: MEDICAID -->
+          <!-- LIVE-STATUS CLAIM -->
           <p class="roof-foot">Funded through Health First Colorado, the state&rsquo;s Medicaid programme.</p>
         </div>
         <div class="roof-side roof-idd">
@@ -290,7 +300,7 @@
           <a href="/passionate-care-preview/in-home-support-services/">In-Home Support Services &mdash; IHSS</a> is the Colorado
           Medicaid arrangement that turns it into one. Her son chooses his caregiver and directs how
           the work is done. She becomes our employee. We handle the payroll taxes, the workers&rsquo;
-          compensation, the Medicaid billing and the registered-nurse oversight the state requires.
+          compensation and the Medicaid billing.
         </p>
         <p>
           It works the same way for a daughter caring for her father, a husband caring for his wife
@@ -316,7 +326,6 @@
         These four services are meant to hold a whole week together, including the evenings and
         the Tuesday the driver cancels.
       </p>
-      <!-- TODO: PASA — confirm exact approved service list and waivers (DD, SLS, CES) -->
 
       <div class="card-grid card-grid-4">
         <article class="card">
@@ -413,7 +422,7 @@
       <div class="callout">
         <p>
           We can tell you which door you are standing at and what usually happens next, including
-          when the answer is that we are not the right fit. Nobody here decides eligibility,
+          when the answer is that we are not the right fit for you. Nobody here decides eligibility,
           hours, or pay.
         </p>
       </div>
@@ -425,12 +434,10 @@
       <div class="prose">
         <span class="eyebrow">Where we work</span>
         <h2 id="area-h">Across the Denver metro, and across CCB regions</h2>
-        <!-- LIVE-STATUS CLAIM --><!-- TODO: COUNTIES -->
+        <!-- LIVE-STATUS CLAIM -->
         <p>
-          We support people whose homes are in Denver, Adams, Arapahoe, Jefferson, Douglas and
-          Broomfield counties.
+          We support people whose homes are in Denver, Adams, Arapahoe, Douglas, Jefferson, Boulder, Broomfield and Elbert counties.
         </p>
-        <!-- TODO: CCB — confirm which CCBs the agency is an approved vendor with; only those may be described as "approved" -->
         <p>
           Because the metro is carved into Community Centered Board regions, families often ask
           whether we can work with theirs. We support individuals whose waiver services are
@@ -449,9 +456,11 @@
           <li>Denver</li>
           <li>Adams</li>
           <li>Arapahoe</li>
-          <li>Jefferson</li>
           <li>Douglas</li>
+          <li>Jefferson</li>
+          <li>Boulder</li>
           <li>Broomfield</li>
+          <li>Elbert</li>
         </ul>
       </div>
     </div>
@@ -480,7 +489,7 @@
     <div class="wrap cta-panel">
       <div class="cta-copy">
         <h2>Ring us and ask anything</h2>
-        <p>Whether a relative could be paid for the care they already give, whether a day programme place is possible, or just what any of these words mean. There is no charge for asking and no one will chase you afterwards.</p>
+        <p>Whether a relative could be paid for the care they already give, whether a day programme place is possible, or just what any of these words mean. No cost and no obligation.</p>
       </div>
 
       <div class="cta-act">
@@ -513,12 +522,12 @@
         <p>
           <!-- TODO: PHONE -->
           <a href="tel:+17200000000">(720) 000-0000</a><br>
-          <!-- TODO: EMAIL -->
           <a href="mailto:info@passionatecarecolorado.com">info@passionatecarecolorado.com</a>
         </p>
         <p>
-          <!-- TODO: LICENSE — publish the CDPHE licence class and number here once supplied. -->
-          Licensed by the Colorado Department of Public Health and Environment.
+          Licensed by the Colorado Department of Public Health and Environment as a home care
+          agency for personal care and homemaker services, non-medical. CDPHE facility ID 04RGE7.
+          Program Approved Service Agency facility ID 1O6MQ.
         </p>
       </div>
       <div>
@@ -550,9 +559,8 @@
       </div>
     </div>
     <div class="footer-note">
-      <!-- TODO: COUNTIES -->
       <p>
-        Service area: Denver, Adams, Arapahoe, Jefferson, Douglas and Broomfield counties, Colorado.
+        Service area: Denver, Adams, Arapahoe, Douglas, Jefferson, Boulder, Broomfield and Elbert counties, Colorado.
         We do not publish a street address; all support is delivered where people live and spend
         their days.
       </p>
