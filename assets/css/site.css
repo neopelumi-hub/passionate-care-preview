@@ -902,6 +902,7 @@ img {
 .band-cream .fact-card,
 .band-moss .fact-card { background: var(--paper); }
 .band-dark .fact-card { background: rgba(255, 255, 255, 0.08); }
+.fact-card h2,
 .fact-card h3 { font-size: 1.08rem; margin-bottom: 0.75rem; }
 .fact-card p:last-child,
 .fact-card ul:last-child { margin-bottom: 0; }
