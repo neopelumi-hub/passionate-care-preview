@@ -680,6 +680,10 @@ strong { font-weight: 700; }
 .svc-head .roof-label { margin-bottom: 0.45rem; }
 .svc-home .roof-label { color: #F6D2CB; }
 .svc-waiver .roof-label { color: #BFD9C3; }
+/* A link inside the coloured head has to clear 4.5:1 against clay and moss
+   both; white with an underline does, and colour alone would not. */
+.svc-elig a { color: #fff; text-underline-offset: 3px; }
+.svc-elig a:hover { text-decoration-thickness: 2px; }
 .svc-elig {
   margin: 0.6rem 0 0;
   font-size: 0.95rem;
