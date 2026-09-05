@@ -440,53 +440,31 @@ strong { font-weight: 700; }
   border-radius: 24px;
   overflow: hidden;
 }
-/* The hero band is a 24:9 letterbox on desktop, and the home rotator a 30:9
-   one, so only about half a 3:2 photograph is ever on screen there. Which half
-   is decided here, and the answer is the top of it: every one of these pictures
-   is framed with people standing or sitting in the upper portion, and anything
-   other than a top-aligned window takes the tops of their heads off. Tested
-   against all fifteen.
+/* The hero window is the photographs' own proportion, 3:2, at every width.
 
-   That leaves headroom as a property of the file rather than the CSS, which is
-   the right place for it — the crop in scratchpad/makephotos.py decides how much
-   air sits above the tallest head, and this shows whatever that came to. A
-   photograph framed differently can override with --focus on its own selector. */
+   It used to be a 24:9 letterbox on desktop and 30:9 in the home rotator, which
+   showed 56% and 45% of each picture respectively and made the top-aligned
+   --focus below load-bearing: it decided which half you saw, and got the respite
+   book and the services calendar wrong. Against a box of the image's own ratio,
+   object-fit: cover has nothing to crop and none of that arbitrates anything.
+
+   Measured before changing it: the height of this box does not affect what is
+   above the fold. The hero lead ends at a fixed point and the picture starts
+   there, so the same 69px at 1280 and 113px at 900 are visible whatever shape
+   the box is. A taller window only moves the bottom of the image down.
+
+   --focus stays, inert, so a photograph that is not 3:2 still has a way to say
+   where its subject is. */
 .hero-visual img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   object-position: var(--focus, center 0%);
 }
 @media (min-width: 56.25rem) {
   .hero-visual { border-radius: 32px; }
-  .hero-visual img { aspect-ratio: 24 / 9; }
 }
 
-/* TODO: IMAGE — no photographs have been supplied yet. Until they are, the
-   visual band is drawn: a warm gradient carrying the brand shapes. Swapping in
-   a photograph means replacing the .hero-art element with a .hero-visual
-   figure; nothing else changes. */
-.hero-art {
-  position: relative;
-  margin: 2.25rem 0 0;
-  border-radius: 24px;
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background:
-    radial-gradient(80% 120% at 12% 100%, rgba(47, 93, 58, 0.55) 0%, rgba(47, 93, 58, 0) 62%),
-    radial-gradient(70% 110% at 88% 0%, rgba(232, 169, 77, 0.55) 0%, rgba(232, 169, 77, 0) 60%),
-    linear-gradient(140deg, var(--clay) 0%, var(--clay-deep) 100%);
-}
-.hero-art svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-@media (min-width: 56.25rem) {
-  .hero-art { border-radius: 32px; aspect-ratio: 30 / 9; }
-}
 
 /* --- Image rotator -------------------------------------------------------
    Two slots show three pictures in slow rotation rather than one: the home
@@ -517,7 +495,6 @@ strong { font-weight: 700; }
 
 /* The frames carry their own margins in the ordinary case; inside a rotator
    the container owns the spacing so the stack stays flush. */
-.rotator > .rotator-frame > .hero-art,
 .rotator > .rotator-frame > .band-visual { margin: 0; }
 
 /* Reduced motion: frame one, full stop. The first-child rule is what actually
@@ -528,22 +505,14 @@ strong { font-weight: 700; }
   .rotator > .rotator-frame:first-child { display: block; opacity: 1; }
 }
 
-/* Home hero. Every frame — drawn stand-in or photograph — is pinned to the
-   hero band's geometry, so swapping one for the other cannot move anything. */
+/* Home hero. Every frame is pinned to the hero band's geometry, so a swap
+   between them cannot move anything. */
 .hero-rotator { margin: 2.25rem 0 0; }
-.hero-rotator .hero-art,
-.hero-rotator .hero-visual img { aspect-ratio: 16 / 9; }
-@media (min-width: 56.25rem) {
-  .hero-rotator .hero-art,
-  .hero-rotator .hero-visual img { aspect-ratio: 30 / 9; }
-}
+.hero-rotator .hero-visual img { aspect-ratio: 3 / 2; }
 
-/* About band. Wider than the text column, 16:9 at every width. */
+/* About band. Same proportion, for the same reason: these are the same
+   photographs, and a band that crops them is a band that loses their subject. */
 .band-rotator { margin: 2rem 0 0; }
-.band-rotator .hero-art { margin: 0; }
-@media (min-width: 56.25rem) {
-  .band-rotator .hero-art { aspect-ratio: 16 / 9; }
-}
 
 /* The photograph version of a rotator frame, ready for the shot list to land
    in. Same box as the drawn stand-in it replaces. */
@@ -1652,7 +1621,6 @@ main a:not(.btn):not(.phone-link):not(.cta-phone):not(.path):focus-visible::afte
   .js-hero .hero-body > .btn-row     { animation-delay: 330ms; }
 
   .js-hero .hero > .wrap > .hero-visual,
-  .js-hero .hero > .wrap > .hero-art,
   .js-hero .hero > .wrap > .rotator,
   .js-hero .hero > .wrap > .pathways {
     animation: hero-rise 0.5s ease-out both;
