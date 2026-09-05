@@ -657,6 +657,78 @@ strong { font-weight: 700; }
 .tile svg { display: block; }
 .band-dark .tile { background: var(--ochre-lit); color: var(--moss-deep); }
 
+/* --- The services map ----------------------------------------------------
+   The roof panel makes the both-halves argument in two coloured blocks. This
+   makes the same argument at full size: the two groups keep the roof's colours
+   and label treatment, so a visitor who has seen the home page recognises the
+   shape, and each service becomes a tile they can actually follow.
+
+   The coloured head carries the licence the group runs under; the tiles sit on
+   paper beneath it, because a grid of white cards on clay is unreadable and
+   because the tiles are the part people click. */
+
+.svc-group { margin-top: 2rem; }
+.svc-head {
+  padding: 1.5rem 1.5rem 1.35rem;
+  border-radius: var(--radius) var(--radius) 0 0;
+  color: #fff;
+}
+.svc-home { background: var(--clay); }
+.svc-waiver { background: var(--moss); }
+.svc-head h2,
+.svc-head h3 { color: #fff; font-size: 1.35rem; margin: 0 0 0.5rem; }
+.svc-head .roof-label { margin-bottom: 0.45rem; }
+.svc-home .roof-label { color: #F6D2CB; }
+.svc-waiver .roof-label { color: #BFD9C3; }
+.svc-elig {
+  margin: 0.6rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.svc-tiles {
+  display: grid;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-top: 0;
+  border-radius: 0 0 var(--radius) var(--radius);
+  overflow: hidden;
+}
+@media (min-width: 40rem) {
+  .svc-tiles { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 62rem) {
+  .svc-tiles-4 { grid-template-columns: repeat(4, 1fr); }
+  .svc-tiles-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* The whole tile is the target, not just the words in it: a 48px icon and two
+   lines of text make a comfortably large hit area, and one that does not move
+   under a thumb. */
+.svc-tile {
+  display: block;
+  background: var(--paper);
+  padding: 1.5rem 1.35rem;
+  text-decoration: none;
+  color: inherit;
+}
+.svc-tile h3 {
+  font-size: 1.08rem;
+  margin: 0 0 0.35rem;
+  color: var(--clay-deep, var(--ink));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--rule);
+}
+.svc-tile p { margin: 0; font-size: 0.96rem; line-height: 1.55; color: var(--ink-soft); }
+.svc-tile .tile { margin-bottom: 0.85rem; }
+.svc-tile:hover,
+.svc-tile:focus-visible { background: var(--cream); }
+.svc-tile:hover h3 { text-decoration-color: currentColor; }
+
 /* --- Media --------------------------------------------------------------- */
 
 img {
